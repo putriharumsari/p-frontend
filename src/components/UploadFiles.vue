@@ -23,7 +23,8 @@
 
     <div class="alert alert-light" role="alert">{{ message }}</div>
 
-    <div v-if="previewImage">
+    <div stye="margin-bottom: 50px;"
+         v-if="previewImage">
       <div>
 
         <img class="img-fluid rounded" :src="previewImage" alt=""
@@ -40,6 +41,11 @@
           :key="index"
         >
           <a :href="file.url">{{ file.name }}</a>
+          <a>
+            <img class="img-fluid rounded" :src="file.url" alt=""
+                 style="object-fit:cover; width: 600px; height: 350px;"/>
+          </a>
+
         </li>
       </ul>
     </div>
