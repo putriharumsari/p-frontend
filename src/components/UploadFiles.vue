@@ -23,6 +23,14 @@
 
     <div class="alert alert-light" role="alert">{{ message }}</div>
 
+    <div v-if="previewImage">
+      <div>
+
+        <img class="img-fluid rounded" :src="previewImage" alt=""
+             style="object-fit:cover; width: 600px; height: 350px;"/>
+      </div>
+    </div>
+
     <div class="card">
       <div class="card-header">List of Files</div>
       <ul class="list-group list-group-flush">
@@ -50,12 +58,17 @@ export default {
       progress: 0,
       message: '',
 
-      fileInfos: []
+      fileInfos: [],
+
+      previewImage: undefined,
+      currentImage: undefined
     }
   },
   methods: {
     selectFile () {
-      this.selectedFiles = this.$refs.file.files
+      this.selectedFiles = this.$refs.file.files.item(0)
+      this.previewImage = URL.createObjectURL(this.selectedFiles)
+      this.progress = 0
     },
     upload () {
       this.progress = 0
