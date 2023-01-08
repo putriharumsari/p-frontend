@@ -133,15 +133,15 @@ export default {
       } else if (pflanzen.plantName === 'Knoblauch') {
         return require('../assets/garlic.jpg')
       } else if (pflanzen.plantName === 'Tomaten') {
-        return require('../assets/tom1.jpeg')
+        return require('../assets/tomato.jpg')
       } else if (pflanzen.plantName === 'Karotte') {
         return require('../assets/carrot.jpg')
       } else if (pflanzen.plantName === 'Paprika') {
-        return require('../assets/pap.jpg')
+        return require('../assets/pepper.jpg')
       } else if (pflanzen.plantName === 'Chilli') {
         return require('../assets/chill.jpg')
       } else if (pflanzen.plantName === 'Spinat') {
-        return require('../assets/spinat.jpeg')
+        return require('../assets/spinat.jpg')
       }
     },
     retrievePflanzen () {

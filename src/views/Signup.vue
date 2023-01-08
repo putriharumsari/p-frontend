@@ -30,16 +30,34 @@
     </div>
   </div>
   </section>
+  <HelloWorld />
   </body>
 </template>
 
 <script>
+import HelloWorld from '@/components/HelloWorld'
+// import OktaSignIn from '@okta/okta-signin-widget'
+
 export default {
   name: 'Signup',
+  data () {
+    return {
+      password: '',
+      createPassword: '',
+      confirmPassword: '',
+      passwordType: 'password',
+      isFormLogin: false
+    }
+  },
+  components: {
+    HelloWorld
+  },
   methods: {
     onEyeIconClick: function (event) {
       this.passwordType = this.passwordType === 'password' ? 'text' : 'password'
       this.isActive = !this.isActive
+      console.log('PasswordType', this.passwordType)
+      console.log('ActiveType', this.isActive)
     },
     toggleForm: function () {
       this.isFormLogin = !this.isFormLogin
@@ -48,15 +66,7 @@ export default {
       this.confirmPassword = ''
       this.isActive = false
       this.passwordType = 'password'
-    }
-  },
-  data () {
-    return {
-      password: '',
-      createPassword: '',
-      confirmPassword: '',
-      passwordType: 'password',
-      isFormLogin: true
+      console.log('LoginType', this.isFormLogin)
     }
   }
 }
@@ -85,18 +95,15 @@ export default {
   border-radius: 6px;
   background: #FFF;
 }
-/*.form.signup{
-  opacity: 0;
-  pointer-events: none;
+.form.signup{
+  pointer-events: auto;
 }
 .forms.show-signup .form.signup{
-  opacity: 1;
   pointer-events: auto;
 }
 .forms.show-signup .form.login{
-  opacity: 0;
-  pointer-events: none;
-}*/
+  pointer-events: auto;
+}
 header{
   font-size: 28px;
   font-weight: 600;
